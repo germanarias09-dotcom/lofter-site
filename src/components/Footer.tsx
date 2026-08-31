@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col justify-between">
-          <Logo className="[&_span]:text-white [&_.text-navy]:text-white" />
+          <Logo variant="onDark" />
           <p className="mt-4 text-xs text-white/40">
             Gestión profesional de alquileres temporarios en La Plata.
           </p>

@@ -20,8 +20,8 @@ const steps = [
   },
   {
     n: "02",
-    title: "La publicamos y la distribuimos",
-    text: "Tu propiedad queda visible en los principales sitios de reserva a través de nuestro motor de reservas, con disponibilidad sincronizada en tiempo real.",
+    title: "Generamos reservas",
+    text: "Priorizamos nuestra demanda directa de huéspedes y empresas, y complementamos con los principales sitios de reserva. Gestionamos precios y disponibilidad en tiempo real para maximizar ocupación y rentabilidad.",
   },
   {
     n: "03",
@@ -131,19 +131,23 @@ export default function PropietariosPage() {
           </div>
         </section>
 
-        {/* PLATAFORMAS */}
-        <section className="border-b border-line bg-bg-soft py-10">
-          <div className="mx-auto max-w-7xl px-6">
-            <p className="text-center text-xs font-semibold uppercase tracking-widest text-navy/40">
-              Tu propiedad, visible donde los huéspedes buscan alojamiento
-            </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-navy/40">
-              {["Airbnb", "Booking.com", "Vrbo", "Google"].map((p) => (
-                <span key={p} className="text-lg font-semibold">
-                  {p}
-                </span>
-              ))}
+        {/* CANALES DE RESERVA */}
+        <section className="border-b border-line bg-bg-soft py-16">
+          <div className="mx-auto max-w-4xl px-6 text-center">
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-end sm:justify-center sm:gap-6">
+              <span className="font-display text-5xl font-semibold text-teal sm:text-6xl">
+                85%
+              </span>
+              <p className="max-w-md text-navy/70 sm:text-left">
+                de nuestras reservas se generan por canales directos, a través de
+                nuestra base de huéspedes particulares y clientes corporativos.
+              </p>
             </div>
+            <p className="mx-auto mt-6 max-w-2xl text-sm text-navy/50">
+              Priorizamos la venta directa y utilizamos Airbnb y Booking como
+              canales complementarios, reduciendo comisiones y mejorando la
+              rentabilidad de cada propiedad.
+            </p>
           </div>
         </section>
 
