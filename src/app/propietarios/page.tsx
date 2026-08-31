@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import AnimatedStat from "@/components/AnimatedStat";
 
 export const metadata: Metadata = {
   title: "Propietarios | LOFTER",
@@ -14,27 +15,36 @@ const WHATSAPP_URL =
 
 const numbers = [
   {
-    value: "+30",
+    target: 30,
+    prefix: "+",
     label: "Propiedades",
     text: "Gestión activa e hiperlocal en La Plata.",
   },
   {
-    value: "USD 500K",
+    target: 500,
+    prefix: "USD ",
+    suffix: "K",
     label: "Volumen Anual",
     text: "Reservas procesadas por año.",
   },
   {
-    value: "+2.500",
+    target: 2500,
+    prefix: "+",
     label: "Reservas Concretadas",
     text: "Operaciones gestionadas de punta a punta.",
   },
   {
-    value: "+8 Años",
+    target: 8,
+    prefix: "+",
+    suffix: " Años",
     label: "Experiencia Local",
     text: "Interpretando la demanda de la ciudad.",
   },
   {
-    value: "USD 1,8 M",
+    target: 1.8,
+    decimals: 1,
+    prefix: "USD ",
+    suffix: " M",
     label: "Capital Administrado",
     text: "Valor estimado de los activos bajo gestión.",
   },
@@ -122,7 +132,7 @@ export default function PropietariosPage() {
     <>
       <Nav active="/propietarios" />
       <main className="flex-1">
-        {/* HERO */}
+        {/* HERO + LOFTER EN NUMEROS */}
         <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy to-teal-dark text-white">
           <div className="mx-auto max-w-7xl px-6 py-24 sm:py-28">
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-white/60">
@@ -154,41 +164,34 @@ export default function PropietariosPage() {
               </a>
             </div>
           </div>
-        </section>
 
-        {/* LOFTER EN NUMEROS */}
-        <section className="bg-bg-soft py-20">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="rounded-3xl border border-line bg-white p-8 shadow-sm sm:p-12">
-              <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">
-                    LOFTER en <span className="text-teal">números</span>
-                  </h2>
-                  <p className="mt-3 max-w-xl text-navy/60">
-                    Gestión local basada en decisiones con datos. Más rendimiento para tu
-                    activo sin convertirlo en otro trabajo.
-                  </p>
-                </div>
+          {/* LOFTER EN NUMEROS — continúa el mismo degradado del hero, sin tarjeta aparte */}
+          <div className="border-t border-white/10">
+            <div className="mx-auto max-w-7xl px-6 py-14">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <h2 className="text-sm font-semibold uppercase tracking-widest text-white/60">
+                  LOFTER en números
+                </h2>
                 <a
                   href="/privacidad"
-                  className="inline-flex h-fit shrink-0 items-center rounded-full bg-bg-soft px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-navy/50 hover:text-teal"
+                  className="text-xs font-semibold uppercase tracking-wide text-white/40 hover:text-white"
                 >
                   Tratamiento de datos
                 </a>
               </div>
 
-              <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              <div className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
                 {numbers.map((n) => (
-                  <div
-                    key={n.label}
-                    className="rounded-2xl border border-line px-5 py-8 text-center"
-                  >
-                    <span className="font-display block text-4xl font-bold text-teal">
-                      {n.value}
-                    </span>
-                    <span className="mt-4 block font-semibold text-navy">{n.label}</span>
-                    <span className="mt-1 block text-sm text-navy/50">{n.text}</span>
+                  <div key={n.label}>
+                    <AnimatedStat
+                      target={n.target}
+                      decimals={n.decimals}
+                      prefix={n.prefix}
+                      suffix={n.suffix}
+                      className="font-display block text-4xl font-bold text-white"
+                    />
+                    <span className="mt-3 block font-semibold text-white/90">{n.label}</span>
+                    <span className="mt-1 block text-sm text-white/50">{n.text}</span>
                   </div>
                 ))}
               </div>
