@@ -12,6 +12,34 @@ export const metadata: Metadata = {
 const WHATSAPP_URL =
   "https://api.whatsapp.com/send/?phone=5492216161983&text=Hola!%20Quiero%20sumar%20mi%20propiedad%20a%20LOFTER&type=phone_number&app_absent=0";
 
+const numbers = [
+  {
+    value: "+30",
+    label: "Propiedades",
+    text: "Gestión activa e hiperlocal en La Plata.",
+  },
+  {
+    value: "USD 500K",
+    label: "Volumen Anual",
+    text: "Reservas procesadas por año.",
+  },
+  {
+    value: "+2.500",
+    label: "Reservas Concretadas",
+    text: "Operaciones gestionadas de punta a punta.",
+  },
+  {
+    value: "+8 Años",
+    label: "Experiencia Local",
+    text: "Interpretando la demanda de la ciudad.",
+  },
+  {
+    value: "USD 1,8 M",
+    label: "Capital Administrado",
+    text: "Valor estimado de los activos bajo gestión.",
+  },
+];
+
 const steps = [
   {
     n: "01",
@@ -125,9 +153,46 @@ export default function PropietariosPage() {
                 Ver cómo funciona
               </a>
             </div>
-            <p className="mt-8 text-sm text-white/50">
-              +3 años administrando alquileres temporarios en La Plata.
-            </p>
+          </div>
+        </section>
+
+        {/* LOFTER EN NUMEROS */}
+        <section className="bg-bg-soft py-20">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="rounded-3xl border border-line bg-white p-8 shadow-sm sm:p-12">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">
+                    LOFTER en <span className="text-teal">números</span>
+                  </h2>
+                  <p className="mt-3 max-w-xl text-navy/60">
+                    Gestión local basada en decisiones con datos. Más rendimiento para tu
+                    activo sin convertirlo en otro trabajo.
+                  </p>
+                </div>
+                <a
+                  href="/privacidad"
+                  className="inline-flex h-fit shrink-0 items-center rounded-full bg-bg-soft px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-navy/50 hover:text-teal"
+                >
+                  Tratamiento de datos
+                </a>
+              </div>
+
+              <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                {numbers.map((n) => (
+                  <div
+                    key={n.label}
+                    className="rounded-2xl border border-line px-5 py-8 text-center"
+                  >
+                    <span className="font-display block text-4xl font-bold text-teal">
+                      {n.value}
+                    </span>
+                    <span className="mt-4 block font-semibold text-navy">{n.label}</span>
+                    <span className="mt-1 block text-sm text-navy/50">{n.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
