@@ -194,13 +194,20 @@ export default function PropietariosPage() {
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-bg-soft" />
         </section>
 
-        {/* CANALES DE RESERVA */}
-        <section className="border-b border-line bg-bg-soft py-10">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-10">
-              <span className="font-display shrink-0 text-6xl font-semibold text-teal sm:text-7xl">
-                85%
-              </span>
+        {/* CANALES DE RESERVA — tarjeta flotante que conecta el hero con el resto del contenido */}
+        <section className="relative z-10 -mt-16 bg-bg-soft px-6 sm:-mt-20">
+          <div className="mx-auto max-w-7xl rounded-2xl border border-line bg-white p-8 shadow-xl shadow-navy/10 sm:p-10">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
+              <div className="flex shrink-0 items-center gap-5 sm:border-r sm:border-line sm:pr-10">
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-teal/10 text-teal">
+                  <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth={1.6}>
+                    <path d="M4 16l5-5 3 3 7-8M13 6h6v6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                <span className="font-display text-6xl font-semibold text-teal sm:text-7xl">
+                  85%
+                </span>
+              </div>
               <p className="text-navy/70">
                 de nuestras reservas se generan por canales directos, a través de
                 nuestra base de huéspedes particulares y clientes corporativos.
@@ -213,7 +220,7 @@ export default function PropietariosPage() {
         </section>
 
         {/* PROCESO */}
-        <section className="mx-auto max-w-7xl px-6 py-24">
+        <section className="mx-auto max-w-7xl px-6 pb-24 pt-16">
           <p className="text-sm font-semibold uppercase tracking-widest text-teal">
             Así de fácil
           </p>
