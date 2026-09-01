@@ -134,7 +134,7 @@ export default function PropietariosPage() {
       <main className="flex-1">
         {/* HERO + LOFTER EN NUMEROS */}
         <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy to-teal-dark text-white">
-          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-28">
+          <div className="mx-auto max-w-7xl px-6 pt-24 pb-14 sm:pt-28 sm:pb-16">
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-white/60">
               Propietarios
             </p>
@@ -183,22 +183,20 @@ export default function PropietariosPage() {
         </section>
 
         {/* CANALES DE RESERVA */}
-        <section className="border-b border-line bg-bg-soft py-16">
-          <div className="mx-auto max-w-4xl px-6 text-center">
-            <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-end sm:justify-center sm:gap-6">
-              <span className="font-display text-5xl font-semibold text-teal sm:text-6xl">
+        <section className="border-b border-line bg-bg-soft py-10">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-10">
+              <span className="font-display shrink-0 text-6xl font-semibold text-teal sm:text-7xl">
                 85%
               </span>
-              <p className="max-w-md text-navy/70 sm:text-left">
+              <p className="text-navy/70">
                 de nuestras reservas se generan por canales directos, a través de
                 nuestra base de huéspedes particulares y clientes corporativos.
+                Priorizamos la venta directa y utilizamos Airbnb y Booking como
+                canales complementarios, reduciendo comisiones y mejorando la
+                rentabilidad de cada propiedad.
               </p>
             </div>
-            <p className="mx-auto mt-6 max-w-2xl text-sm text-navy/50">
-              Priorizamos la venta directa y utilizamos Airbnb y Booking como
-              canales complementarios, reduciendo comisiones y mejorando la
-              rentabilidad de cada propiedad.
-            </p>
           </div>
         </section>
 
