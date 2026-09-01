@@ -24,13 +24,13 @@ const numbers = [
     target: 500,
     prefix: "USD ",
     suffix: "K",
-    label: "Volumen Anual",
+    label: "Volumen Anual en Reservas",
     text: "Reservas procesadas por año.",
   },
   {
     target: 2500,
     prefix: "+",
-    label: "Reservas Concretadas",
+    label: "Reservas Concretadas por año",
     text: "Operaciones gestionadas de punta a punta.",
   },
   {
@@ -163,38 +163,21 @@ export default function PropietariosPage() {
                 Ver cómo funciona
               </a>
             </div>
-          </div>
 
-          {/* LOFTER EN NUMEROS — continúa el mismo degradado del hero, sin tarjeta aparte */}
-          <div className="border-t border-white/10">
-            <div className="mx-auto max-w-7xl px-6 py-14">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                <h2 className="text-sm font-semibold uppercase tracking-widest text-white/60">
-                  LOFTER en números
-                </h2>
-                <a
-                  href="/privacidad"
-                  className="text-xs font-semibold uppercase tracking-wide text-white/40 hover:text-white"
-                >
-                  Tratamiento de datos
-                </a>
-              </div>
-
-              <div className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
-                {numbers.map((n) => (
-                  <div key={n.label}>
-                    <AnimatedStat
-                      target={n.target}
-                      decimals={n.decimals}
-                      prefix={n.prefix}
-                      suffix={n.suffix}
-                      className="font-display block text-4xl font-bold text-white"
-                    />
-                    <span className="mt-3 block font-semibold text-white/90">{n.label}</span>
-                    <span className="mt-1 block text-sm text-white/50">{n.text}</span>
-                  </div>
-                ))}
-              </div>
+            {/* LOFTER EN NUMEROS — continúa el mismo degradado del hero, sin tarjeta aparte */}
+            <div className="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
+              {numbers.map((n) => (
+                <div key={n.label}>
+                  <AnimatedStat
+                    target={n.target}
+                    decimals={n.decimals}
+                    prefix={n.prefix}
+                    suffix={n.suffix}
+                    className="font-display block text-4xl font-bold text-white"
+                  />
+                  <span className="mt-3 block font-semibold text-white/90">{n.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
