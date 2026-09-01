@@ -134,7 +134,7 @@ export default function PropietariosPage() {
       <main className="flex-1">
         {/* HERO + LOFTER EN NUMEROS */}
         <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy to-teal-dark text-white">
-          <div className="mx-auto max-w-7xl px-6 pt-24 pb-14 sm:pt-28 sm:pb-16">
+          <div className="mx-auto max-w-7xl px-6 pt-24 pb-20 sm:pt-28 sm:pb-24">
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-white/60">
               Propietarios
             </p>
@@ -180,6 +180,9 @@ export default function PropietariosPage() {
               ))}
             </div>
           </div>
+
+          {/* Se aclara hacia abajo, como en renteo.com.co, para entrar suave a la seccion clara siguiente */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-bg-soft" />
         </section>
 
         {/* CANALES DE RESERVA */}
