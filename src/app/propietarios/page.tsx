@@ -139,13 +139,13 @@ export default function PropietariosPage() {
               Propietarios
             </p>
             <h1 className="font-display max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl">
-              Un enfoque de servicio completo para tu alquiler temporario
+              Tu propiedad, gestionada como si fuera nuestra
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-white/80">
-              LOFTER adopta un enfoque personalizado para proporcionar una solución de
-              alquiler temporal de servicio completo, con el fin de maximizar los ingresos
-              de tu propiedad mientras creamos experiencias excepcionales para tus
-              huéspedes en La Plata.
+              Lofter nació administrando unidades propias. Hoy aplicamos esa misma
+              lógica a cada propiedad que gestionamos: tecnología, demanda directa y
+              operación integral para maximizar su ocupación y rentabilidad.
+              Invertimos en el mismo negocio que gestionamos.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a
