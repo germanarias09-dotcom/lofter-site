@@ -144,8 +144,10 @@ export default function PropietariosPage() {
             <p className="mt-6 max-w-2xl text-lg text-white/80">
               Lofter nació administrando unidades propias. Hoy aplicamos esa misma
               lógica a cada propiedad que gestionamos: tecnología, demanda directa y
-              operación integral para maximizar su ocupación y rentabilidad.
-              Invertimos en el mismo negocio que gestionamos.
+              operación integral para maximizar su ocupación y rentabilidad.{" "}
+              <span className="font-semibold text-teal">
+                Invertimos en el mismo negocio que gestionamos.
+              </span>
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a
