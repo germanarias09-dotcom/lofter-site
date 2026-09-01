@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -165,12 +166,6 @@ export default function PropietariosPage() {
               >
                 Quiero sumar mi propiedad
               </a>
-              <a
-                href="#servicios"
-                className="rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-white"
-              >
-                Ver cómo funciona
-              </a>
             </div>
 
             {/* LOFTER EN NUMEROS — continúa el mismo degradado del hero, sin tarjeta aparte */}
@@ -190,37 +185,35 @@ export default function PropietariosPage() {
             </div>
           </div>
 
-          {/* Se aclara hacia abajo, como en renteo.com.co, para entrar suave a la seccion clara siguiente */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-bg-soft" />
+          {/* Se aclara hacia abajo, como en renteo.com.co, para entrar suave a la banda teal siguiente */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-teal/5" />
         </section>
 
-        {/* CANALES DE RESERVA — tarjeta flotante que conecta el hero con el resto del contenido */}
-        <section className="relative z-10 -mt-16 bg-bg-soft px-6 sm:-mt-20">
-          <div className="mx-auto max-w-7xl rounded-2xl border border-line bg-white p-8 shadow-xl shadow-navy/10 sm:p-10">
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
-              <div className="flex shrink-0 items-center gap-5 sm:border-r sm:border-line sm:pr-10">
-                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-teal/10 text-teal">
-                  <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth={1.6}>
-                    <path d="M4 16l5-5 3 3 7-8M13 6h6v6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <span className="font-display text-6xl font-semibold text-teal sm:text-7xl">
-                  85%
-                </span>
-              </div>
-              <p className="text-navy/70">
-                de nuestras reservas se generan por canales directos, a través de
-                nuestra base de huéspedes particulares y clientes corporativos.
-                Priorizamos la venta directa y utilizamos Airbnb y Booking como
-                canales complementarios, reduciendo comisiones y mejorando la
-                rentabilidad de cada propiedad.
-              </p>
+        {/* CANALES DE RESERVA — banda que continúa el tono teal del hero hacia la seccion clara */}
+        <section className="border-b border-line bg-teal/5 py-14">
+          <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 sm:flex-row sm:items-center sm:gap-10">
+            <div className="flex shrink-0 items-center gap-5 sm:border-r sm:border-teal/15 sm:pr-10">
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-teal shadow-sm shadow-navy/5">
+                <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth={1.6}>
+                  <path d="M4 16l5-5 3 3 7-8M13 6h6v6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <span className="font-display text-6xl font-semibold text-teal sm:text-7xl">
+                85%
+              </span>
             </div>
+            <p className="text-navy/70">
+              de nuestras reservas se generan por canales directos, a través de
+              nuestra base de huéspedes particulares y clientes corporativos.
+              Priorizamos la venta directa y utilizamos Airbnb y Booking como
+              canales complementarios, reduciendo comisiones y mejorando la
+              rentabilidad de cada propiedad.
+            </p>
           </div>
         </section>
 
         {/* PROCESO */}
-        <section className="mx-auto max-w-7xl px-6 pb-24 pt-16">
+        <section className="mx-auto max-w-7xl px-6 py-24">
           <p className="text-sm font-semibold uppercase tracking-widest text-teal">
             Así de fácil
           </p>
@@ -307,31 +300,14 @@ export default function PropietariosPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-line bg-white p-6 shadow-xl shadow-navy/5">
-              <div className="flex items-center justify-between border-b border-line pb-4">
-                <span className="text-sm font-semibold text-navy">Liquidación — Ejemplo</span>
-                <span className="rounded-full bg-teal/10 px-3 py-1 text-xs font-semibold text-teal">
-                  Vista ilustrativa
-                </span>
-              </div>
-              <ul className="mt-4 space-y-4 text-sm">
-                <li className="flex items-center justify-between">
-                  <span className="text-navy/70">Unidad</span>
-                  <span className="font-medium text-navy">Depto Ejemplo 4B</span>
-                </li>
-                <li className="flex items-center justify-between">
-                  <span className="text-navy/70">Reservas del mes</span>
-                  <span className="font-medium text-navy">—</span>
-                </li>
-                <li className="flex items-center justify-between">
-                  <span className="text-navy/70">Ocupación</span>
-                  <span className="font-medium text-navy">—</span>
-                </li>
-                <li className="flex items-center justify-between border-t border-line pt-4">
-                  <span className="text-navy/70">Total a liquidar</span>
-                  <span className="font-display text-lg font-semibold text-teal">$ —</span>
-                </li>
-              </ul>
+            <div className="flex justify-center rounded-3xl bg-bg-soft p-6 sm:p-10">
+              <Image
+                src="/reporte-mensual.png"
+                alt="Reporte mensual del portal de propietarios LOFTER"
+                width={872}
+                height={1804}
+                className="h-auto max-h-[600px] w-auto rounded-2xl shadow-xl shadow-navy/10"
+              />
             </div>
           </div>
         </section>
