@@ -106,6 +106,13 @@ const services = [
     text: "Te ayudamos a diseñar y equipar tu unidad para brindarle al huésped la mejor experiencia LOFTER.",
     icon: <path d="M4 20v-6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6M4 20h16M6 12V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v5" />,
   },
+  {
+    title: "Mantenimiento",
+    text: "Coordinamos el mantenimiento de la unidad ante cualquier desperfecto, con proveedores de confianza para resolverlo rápido y sin que tengas que ocuparte vos.",
+    icon: (
+      <path d="M14.5 5.5a3.5 3.5 0 0 0-4.6 4.6L4 16v3h3l5.9-5.9a3.5 3.5 0 0 0 4.6-4.6l-2.3 2.3-2-2 2.3-2.3Z" />
+    ),
+  },
 ];
 
 const care = [
