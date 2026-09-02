@@ -1,13 +1,14 @@
 import Link from "next/link";
 import Logo from "./Logo";
 
+// Quiénes somos, Huéspedes y Contacto todavía no están construidos en el sitio nuevo:
+// apuntan al sitio actual de lofter.io hasta que se migren.
 const pages = [
   { href: "/", label: "Home" },
-  { href: "/quienes-somos", label: "Quiénes somos" },
-  { href: "/huespedes", label: "Huéspedes" },
+  { href: "https://lofter.io/quienes-somos/", label: "Quiénes somos", external: true },
+  { href: "https://lofter.io/huespedes/", label: "Huéspedes", external: true },
   { href: "/propietarios", label: "Propietarios" },
-  { href: "#reservar", label: "Reservar" },
-  { href: "/contacto", label: "Contacto" },
+  { href: "https://lofter.io/#contacto", label: "Contacto", external: true },
 ];
 
 export default function Footer() {
@@ -25,9 +26,15 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             {pages.map((p) => (
               <li key={p.label}>
-                <Link href={p.href} className="hover:text-teal">
-                  {p.label}
-                </Link>
+                {p.external ? (
+                  <a href={p.href} className="hover:text-teal">
+                    {p.label}
+                  </a>
+                ) : (
+                  <Link href={p.href} className="hover:text-teal">
+                    {p.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -61,7 +68,9 @@ export default function Footer() {
           </h3>
           <div className="flex gap-3">
             <a
-              href="#"
+              href="https://www.facebook.com/lofter.io"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Facebook"
               className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 hover:border-teal hover:text-teal"
             >
@@ -70,7 +79,9 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/lofterviajeros/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Instagram"
               className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 hover:border-teal hover:text-teal"
             >

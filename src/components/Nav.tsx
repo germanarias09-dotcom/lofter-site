@@ -4,15 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
 
+// Quiénes somos, Huéspedes y Contacto todavía no están construidos en el sitio nuevo:
+// apuntan al sitio actual de lofter.io hasta que se migren. Propietarios es la única
+// página ya migrada, por eso es la única que queda como ruta interna.
 const links = [
-  { href: "/quienes-somos", label: "Quiénes somos" },
-  { href: "/huespedes", label: "Huéspedes" },
+  { href: "https://lofter.io/quienes-somos/", label: "Quiénes somos", external: true },
+  { href: "https://lofter.io/huespedes/", label: "Huéspedes", external: true },
   { href: "/propietarios", label: "Propietarios" },
-  { href: "/contacto", label: "Contacto" },
+  { href: "https://lofter.io/#contacto", label: "Contacto", external: true },
 ];
-
-// TODO: reemplazar por la URL real del portal de propietarios (la app de liquidación).
-const OWNER_PORTAL_URL = "#";
 
 export default function Nav({ active }: { active?: string }) {
   const [open, setOpen] = useState(false);
@@ -25,33 +25,30 @@ export default function Nav({ active }: { active?: string }) {
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-teal ${
-                active === link.href ? "text-teal" : "text-navy/80"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) =>
+            link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium transition-colors hover:text-teal ${
+                  active === link.href ? "text-teal" : "text-navy/80"
+                }`}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium transition-colors hover:text-teal ${
+                  active === link.href ? "text-teal" : "text-navy/80"
+                }`}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
-
-        <div className="hidden items-center gap-6 lg:flex">
-          <a
-            href={OWNER_PORTAL_URL}
-            className="text-sm font-semibold text-navy/80 underline-offset-4 hover:text-teal hover:underline"
-          >
-            Acceso propietarios
-          </a>
-          <a
-            href="#reservar"
-            className="rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-teal-dark"
-          >
-            Reservá
-          </a>
-        </div>
 
         <button
           type="button"
@@ -73,27 +70,31 @@ export default function Nav({ active }: { active?: string }) {
       {open && (
         <div className="border-t border-line bg-white px-6 py-4 lg:hidden">
           <nav className="flex flex-col gap-4">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className={`text-sm font-medium ${
-                  active === link.href ? "text-teal" : "text-navy/80"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <a href={OWNER_PORTAL_URL} className="text-sm font-semibold text-navy/80">
-              Acceso propietarios
-            </a>
-            <a
-              href="#reservar"
-              className="w-fit rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-white"
-            >
-              Reservá
-            </a>
+            {links.map((link) =>
+              link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`text-sm font-medium ${
+                    active === link.href ? "text-teal" : "text-navy/80"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`text-sm font-medium ${
+                    active === link.href ? "text-teal" : "text-navy/80"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </nav>
         </div>
       )}
