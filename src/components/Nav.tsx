@@ -4,14 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
 
-// Quiénes somos, Huéspedes y Contacto todavía no están construidos en el sitio nuevo:
-// apuntan al sitio actual de lofter.io hasta que se migren. Propietarios es la única
-// página ya migrada, por eso es la única que queda como ruta interna.
+// "Contacto" no tiene su propia opción de menú: cada página (Propietarios,
+// Huéspedes, Quiénes somos) ya tiene su propia sección de contacto al final.
 const links = [
   { href: "/propietarios", label: "Propietarios" },
-  { href: "https://lofter.io/huespedes/", label: "Huéspedes", external: true },
-  { href: "https://lofter.io/quienes-somos/", label: "Quiénes somos", external: true },
-  { href: "https://lofter.io/#contacto", label: "Contacto", external: true },
+  { href: "/huespedes", label: "Huéspedes" },
+  { href: "/quienes-somos", label: "Quiénes somos" },
 ];
 
 export default function Nav({ active }: { active?: string }) {

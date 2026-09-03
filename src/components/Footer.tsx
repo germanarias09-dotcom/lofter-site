@@ -1,14 +1,13 @@
 import Link from "next/link";
 import Logo from "./Logo";
 
-// Quiénes somos, Huéspedes y Contacto todavía no están construidos en el sitio nuevo:
-// apuntan al sitio actual de lofter.io hasta que se migren.
+// "Contacto" no tiene su propia opción de menú: cada página (Propietarios,
+// Huéspedes, Quiénes somos) ya tiene su propia sección de contacto al final.
 const pages = [
   { href: "/", label: "Home" },
-  { href: "https://lofter.io/quienes-somos/", label: "Quiénes somos", external: true },
-  { href: "https://lofter.io/huespedes/", label: "Huéspedes", external: true },
+  { href: "/quienes-somos", label: "Quiénes somos" },
+  { href: "/huespedes", label: "Huéspedes" },
   { href: "/propietarios", label: "Propietarios" },
-  { href: "https://lofter.io/#contacto", label: "Contacto", external: true },
 ];
 
 export default function Footer() {

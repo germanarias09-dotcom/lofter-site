@@ -36,3 +36,149 @@ body {
 .font-display {
   font-family: var(--font-display);
 }
+
+/* ---------------------------------------------------------------------
+ * Widget de reservas de Octorate (/huespedes): reskin para que se lea
+ * como la propia barra de búsqueda del sitio (estilo ukio.com) en vez
+ * de un widget de terceros pegado encima. Todo escapado bajo
+ * .octorate-widget-slot para no afectar el resto del sitio. Usa
+ * !important porque widget.css de Octorate se carga después y con
+ * selectores igual de específicos.
+ *
+ * Cambios clave vs. la v1:
+ *  - Se oculta la barra de título teal "RESERVAR ONLINE": Octorate la
+ *    trae por defecto, pero ukio (y el resto de esta página) no usan
+ *    encabezados de sección así — es lo que hacía que se viera "aparte".
+ *  - En su lugar: una sola barra blanca en fila, con separadores finos
+ *    entre campos (como "Dónde? / Cuándo?" de ukio) y el botón alineado
+ *    a la derecha, mismo alto que el resto de la fila.
+ *  - Labels grises, chicos, con tracking — igual que ukio — en vez de
+ *    navy grueso.
+ * --------------------------------------------------------------------- */
+.octorate-widget-slot .octobook {
+  font-family: var(--font-sans) !important;
+  color: var(--lofter-navy) !important;
+  background: #fff !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Barra de título propia de Octorate: la sacamos, ver nota arriba. */
+.octorate-widget-slot .octobooktitle {
+  display: none !important;
+}
+
+.octorate-widget-slot form {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0 !important;
+  padding: 1.5rem 1.75rem !important;
+  font-family: var(--font-sans) !important;
+}
+
+.octorate-widget-slot label {
+  display: block !important;
+  color: #8a94a6 !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.65rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  margin-bottom: 0.35rem !important;
+}
+
+/* Separadores finos entre campos, como "Dónde? | Cuándo?" en ukio. */
+.octorate-widget-slot .octobook-date,
+.octorate-widget-slot .octobookpax {
+  padding: 0 1.5rem !important;
+}
+
+.octorate-widget-slot .octobookcheckin {
+  padding-left: 0 !important;
+}
+
+.octorate-widget-slot .octobook-date + .octobook-date,
+.octorate-widget-slot .octobookpax {
+  border-left: 1px solid var(--lofter-line) !important;
+}
+
+.octorate-widget-slot .day {
+  font-family: var(--font-display) !important;
+  color: var(--lofter-navy) !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+}
+
+.octorate-widget-slot .month,
+.octorate-widget-slot .year,
+.octorate-widget-slot .weekday {
+  font-family: var(--font-sans) !important;
+  color: var(--lofter-navy) !important;
+  text-transform: capitalize !important;
+  font-size: 0.85rem !important;
+}
+
+.octorate-widget-slot .octobookpax select {
+  font-family: var(--font-sans) !important;
+  color: var(--lofter-navy) !important;
+  font-size: 0.95rem !important;
+  border: 0 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  appearance: auto !important;
+}
+
+.octorate-widget-slot .octobooksubmit {
+  margin-left: auto !important;
+  padding-left: 1.5rem !important;
+}
+
+.octorate-widget-slot .octobooksubmit label {
+  display: none !important;
+}
+
+.octorate-widget-slot .octobooksubmit input[type="submit"] {
+  font-family: var(--font-sans) !important;
+  background: var(--lofter-teal) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 9999px !important;
+  padding: 0.85rem 1.75rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.octorate-widget-slot .octobooksubmit input[type="submit"]:hover {
+  background: var(--lofter-teal-dark) !important;
+}
+
+/* El datepicker de jQuery UI se abre en un popup adosado al <body>, no
+   dentro de .octorate-widget-slot, así que lo enganchamos por su propia
+   clase para que también use la tipografía del sitio. */
+#ui-datepicker-div,
+.ui-datepicker {
+  font-family: var(--font-sans) !important;
+  z-index: 9999 !important;
+}
+
+.ui-datepicker .ui-datepicker-header {
+  background: var(--lofter-navy) !important;
+  color: #fff !important;
+}
+
+.ui-datepicker td a.ui-state-active,
+.ui-datepicker td a.ui-state-default:hover {
+  background: var(--lofter-teal) !important;
+  border-color: var(--lofter-teal) !important;
+}
+
+/* El wrapper interno de cada fecha (.textdate > div) trae una sombra
+   propia de Octorate que la hace ver como un mini-recuadro aparte. */
+.octorate-widget-slot .textdate > div {
+  box-shadow: none !important;
+}
