@@ -8,9 +8,9 @@ import Logo from "./Logo";
 // apuntan al sitio actual de lofter.io hasta que se migren. Propietarios es la única
 // página ya migrada, por eso es la única que queda como ruta interna.
 const links = [
-  { href: "https://lofter.io/quienes-somos/", label: "Quiénes somos", external: true },
-  { href: "https://lofter.io/huespedes/", label: "Huéspedes", external: true },
   { href: "/propietarios", label: "Propietarios" },
+  { href: "https://lofter.io/huespedes/", label: "Huéspedes", external: true },
+  { href: "https://lofter.io/quienes-somos/", label: "Quiénes somos", external: true },
   { href: "https://lofter.io/#contacto", label: "Contacto", external: true },
 ];
 
