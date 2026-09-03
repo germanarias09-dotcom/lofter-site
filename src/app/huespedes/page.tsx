@@ -9,7 +9,7 @@ import { getApartments } from "@/lib/apartments";
 export const metadata: Metadata = {
   title: "Huéspedes | LOFTER",
   description:
-    "Departamentos con diseño para tu estadía en La Plata, por los días que necesites. Reservá con soporte 24 horas de LOFTER.",
+    "Departamentos completamente equipados para tu estadía en La Plata, por los días que necesites. Reservá con soporte 24 horas de LOFTER.",
 };
 
 const WHATSAPP_URL =
@@ -80,8 +80,8 @@ export default async function HuespedesPage() {
               Viví en La Plata, cuando quieras.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-white/80">
-              Departamentos con diseño, completamente equipados, listos para tu estadía
-              en La Plata — por los días que necesites.
+              Departamentos completamente equipados, listos para tu estadía en La
+              Plata — por los días que necesites.
             </p>
 
             <div className="mt-10 max-w-3xl">

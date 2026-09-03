@@ -28,6 +28,14 @@ import { useLayoutEffect, useRef } from "react";
 //      Solución: en el onload del <script>, si el documento ya terminó de
 //      cargar (document.readyState === "complete", el caso normal en una
 //      SPA), llamamos nosotros mismos a window.octorate.octobook.Widget.show().
+//      Si el documento TODAVÍA no terminó de cargar (puede pasar en
+//      producción con conexiones más lentas o más imágenes por cargar),
+//      NO agregamos un segundo listener de "load" nosotros: form.js ya
+//      registró el suyo propio al ejecutarse (vía Widget.load()), y ese
+//      va a disparar Widget.show() solo, una vez, cuando la página
+//      termine de cargar. Agregar un segundo listener acá hacía que
+//      Widget.show() se llamara dos veces y el buscador apareciera
+//      duplicado.
 const OCTORATE_SITEKEY = "130c7f3021d7acb3f17e0213b5524c20";
 const OCTORATE_SCRIPT_SRC =
   "https://resx.octorate.com/octobook/resources/widget/js/form.js";
@@ -62,14 +70,10 @@ export default function OctorateBookingWidget() {
       // El script ya corrió Widget.load(), que sólo sirve para escuchar un
       // evento "load" de window que en una SPA ya pasó hace rato. Si el
       // documento ya está listo, disparamos Widget.show() nosotros mismos.
+      // Si NO está listo todavía, no hacemos nada más: form.js ya registró
+      // su propio listener de "load" (ver comentario arriba) y ese alcanza.
       if (document.readyState === "complete") {
         window.octorate?.octobook?.Widget?.show?.();
-      } else {
-        window.addEventListener(
-          "load",
-          () => window.octorate?.octobook?.Widget?.show?.(),
-          { once: true },
-        );
       }
     };
     slot.appendChild(script);
