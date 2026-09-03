@@ -23,29 +23,17 @@ export default function Nav({ active }: { active?: string }) {
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {links.map((link) =>
-            link.external ? (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-teal ${
-                  active === link.href ? "text-teal" : "text-navy/80"
-                }`}
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-teal ${
-                  active === link.href ? "text-teal" : "text-navy/80"
-                }`}
-              >
-                {link.label}
-              </Link>
-            )
-          )}
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-sm font-medium transition-colors hover:text-teal ${
+                active === link.href ? "text-teal" : "text-navy/80"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         <button
@@ -68,31 +56,18 @@ export default function Nav({ active }: { active?: string }) {
       {open && (
         <div className="border-t border-line bg-white px-6 py-4 lg:hidden">
           <nav className="flex flex-col gap-4">
-            {links.map((link) =>
-              link.external ? (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={`text-sm font-medium ${
-                    active === link.href ? "text-teal" : "text-navy/80"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={`text-sm font-medium ${
-                    active === link.href ? "text-teal" : "text-navy/80"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`text-sm font-medium ${
+                  active === link.href ? "text-teal" : "text-navy/80"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
       )}

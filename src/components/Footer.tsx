@@ -25,15 +25,9 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             {pages.map((p) => (
               <li key={p.label}>
-                {p.external ? (
-                  <a href={p.href} className="hover:text-teal">
-                    {p.label}
-                  </a>
-                ) : (
-                  <Link href={p.href} className="hover:text-teal">
-                    {p.label}
-                  </Link>
-                )}
+                <Link href={p.href} className="hover:text-teal">
+                  {p.label}
+                </Link>
               </li>
             ))}
           </ul>
