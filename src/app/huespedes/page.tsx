@@ -99,8 +99,8 @@ export default async function HuespedesPage() {
             <p className="text-sm font-semibold uppercase tracking-widest text-teal">
               Alojamiento
             </p>
-            <h2 className="font-display mt-3 max-w-2xl text-3xl font-semibold text-navy sm:text-4xl">
-              Nuestros departamentos en La Plata
+            <h2 className="font-poppins mt-3 max-w-2xl text-3xl font-bold text-navy sm:text-4xl">
+              Nuestros departamentos destacados en La Plata
             </h2>
             <p className="mt-4 max-w-2xl text-navy/60">
               Todas las unidades que administramos, listas para tu próxima estadía.
@@ -112,7 +112,7 @@ export default async function HuespedesPage() {
                   key={apt.id}
                   className="group overflow-hidden rounded-2xl bg-white shadow-sm shadow-navy/5"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden">
+                  <div className="relative aspect-square overflow-hidden">
                     <Image
                       src={apt.image}
                       alt={apt.title}
@@ -120,9 +120,17 @@ export default async function HuespedesPage() {
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
+                    <span className="absolute left-3 top-3 rounded-full bg-navy/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                      {apt.zone}
+                    </span>
                   </div>
                   <div className="p-5">
-                    <h3 className="text-lg font-semibold text-navy">{apt.title}</h3>
+                    <h3 className="font-poppins text-lg font-semibold text-navy">
+                      {apt.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-navy/60">
+                      Hasta {apt.capacity} huéspedes
+                    </p>
                   </div>
                 </div>
               ))}

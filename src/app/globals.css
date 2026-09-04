@@ -25,6 +25,7 @@
   --color-line: var(--lofter-line);
   --font-display: "Lora", Georgia, serif;
   --font-sans: "Work Sans", Arial, Helvetica, sans-serif;
+  --font-poppins: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -35,6 +36,14 @@ body {
 
 .font-display {
   font-family: var(--font-display);
+}
+
+/* Usada puntualmente en la galeria de departamentos de /huespedes, para
+   matchear la tipografia de la presentacion comercial de Lofter (titulos
+   en Poppins bold/extrabold). El resto del sitio sigue usando font-display
+   (Lora) / font-sans (Work Sans) como siempre. */
+.font-poppins {
+  font-family: var(--font-poppins);
 }
 
 /* ---------------------------------------------------------------------
