@@ -17,13 +17,11 @@ export const metadata: Metadata = buildPageMetadata({
 const WHATSAPP_URL =
   "https://api.whatsapp.com/send/?phone=5492216161983&text=Hola!%20Quiero%20consultar%20disponibilidad%20para%20alojarme%20en%20La%20Plata&type=phone_number&app_absent=0";
 
-// La grilla de "Nuestros departamentos" todavía usa fotos de ejemplo de
-// Unsplash (ver src/lib/apartments.ts) porque el endpoint de Lofterize con
-// las fotos reales de las unidades todavía no existe. La ocultamos hasta
-// tener esas fotos para no mostrar departamentos "de mentira". Para
-// reactivarla: pasar esto a `true` (el resto del código ya está listo, no
-// hace falta tocar nada más).
-const SHOW_APARTMENTS_GALLERY = false;
+// La grilla de "Nuestros departamentos" usa las fotos reales que devuelve
+// el endpoint de Lofterize (ver src/lib/apartments.ts). Se oculta sola si
+// ese endpoint no devuelve ninguna unidad con foto (ver `apartments.length`
+// más abajo), así nunca se muestra una sección vacía.
+const SHOW_APARTMENTS_GALLERY = true;
 
 // Foto de portada de ejemplo (estilo ukio.com) mientras no tenemos una sesión
 // de fotos propia de LOFTER para el hero de huéspedes.
@@ -95,7 +93,7 @@ export default async function HuespedesPage() {
         {/* DEPARTAMENTOS — reemplaza el "Descubre tu próximo hogar" de ukio.com por
             el catálogo real de unidades que administramos. Oculta hasta tener fotos
             reales; ver SHOW_APARTMENTS_GALLERY arriba y src/lib/apartments.ts. */}
-        {SHOW_APARTMENTS_GALLERY && (
+        {SHOW_APARTMENTS_GALLERY && apartments.length > 0 && (
         <section className="bg-bg-soft py-24">
           <div className="mx-auto max-w-7xl px-6">
             <p className="text-sm font-semibold uppercase tracking-widest text-teal">
@@ -124,14 +122,7 @@ export default async function HuespedesPage() {
                     />
                   </div>
                   <div className="p-5">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-teal">
-                      {apt.zone}
-                    </p>
-                    <h3 className="mt-1 text-lg font-semibold text-navy">{apt.title}</h3>
-                    <p className="mt-2 text-sm text-navy/60">
-                      {apt.rooms} ambientes · {apt.bathrooms}{" "}
-                      {apt.bathrooms > 1 ? "baños" : "baño"} · {apt.m2} m²
-                    </p>
+                    <h3 className="text-lg font-semibold text-navy">{apt.title}</h3>
                   </div>
                 </div>
               ))}

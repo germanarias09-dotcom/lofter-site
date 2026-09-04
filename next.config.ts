@@ -37,7 +37,11 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-        // Fotos de ejemplo para /huespedes mientras no existe el endpoint de Lofterize.
+      },
+      {
+        protocol: "https",
+        hostname: "resx.octorate.com",
+        // Fotos reales de las unidades, servidas por el endpoint de Lofterize.
         // Ver src/lib/apartments.ts.
       },
     ],
