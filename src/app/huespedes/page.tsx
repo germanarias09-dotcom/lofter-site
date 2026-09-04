@@ -207,64 +207,21 @@ export default async function HuespedesPage() {
 
         {/* CTA + CONTACTO */}
         <section id="contacto" className="mx-auto max-w-7xl px-6 py-24">
-          <div className="grid gap-14 lg:grid-cols-2">
-            <div>
-              <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">
-                ¿Buscás alojamiento en La Plata?
-              </h2>
-              <p className="mt-4 max-w-md text-navy/60">
-                Contanos las fechas de tu estadía y te ayudamos a encontrar el
-                departamento que mejor se ajuste a lo que necesitás.
-              </p>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-block rounded-full bg-teal px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-teal-dark"
-              >
-                Hablar por WhatsApp
-              </a>
-            </div>
-
-            <form
-              action="mailto:contacto@lofter.io"
-              method="post"
-              encType="text/plain"
-              className="rounded-2xl border border-line bg-bg-soft p-8"
+          <div className="mx-auto max-w-xl text-center">
+            <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">
+              ¿Buscás alojamiento en La Plata?
+            </h2>
+            <p className="mt-4 text-navy/60">
+              Contanos las fechas de tu estadía y te ayudamos a encontrar el departamento que mejor se ajuste a lo que necesitás.
+            </p>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-block rounded-full bg-teal px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-teal-dark"
             >
-              <h3 className="font-display text-xl font-semibold text-navy">
-                Contáctanos ahora
-              </h3>
-              <p className="mt-1 text-sm text-navy/60">
-                Nuestro equipo está listo para ayudarte.
-              </p>
-              <div className="mt-6 space-y-4">
-                <input
-                  type="text"
-                  name="Nombre"
-                  placeholder="Nombre"
-                  className="w-full rounded-lg border border-line bg-white px-4 py-3 text-sm outline-none focus:border-teal"
-                />
-                <input
-                  type="email"
-                  name="Email"
-                  placeholder="Email"
-                  className="w-full rounded-lg border border-line bg-white px-4 py-3 text-sm outline-none focus:border-teal"
-                />
-                <textarea
-                  name="Consulta"
-                  placeholder="Fechas y consulta"
-                  rows={4}
-                  className="w-full rounded-lg border border-line bg-white px-4 py-3 text-sm outline-none focus:border-teal"
-                />
-                <button
-                  type="submit"
-                  className="rounded-full bg-navy px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-light"
-                >
-                  Enviar consulta
-                </button>
-              </div>
-            </form>
+              Hablar por WhatsApp
+            </a>
           </div>
         </section>
       </main>
