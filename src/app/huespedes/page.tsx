@@ -5,12 +5,14 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import OctorateBookingWidget from "@/components/OctorateBookingWidget";
 import { getApartments } from "@/lib/apartments";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Huéspedes | LOFTER",
   description:
     "Departamentos completamente equipados para tu estadía en La Plata, por los días que necesites. Reservá con soporte 24 horas de LOFTER.",
-};
+  path: "/huespedes",
+});
 
 const WHATSAPP_URL =
   "https://api.whatsapp.com/send/?phone=5492216161983&text=Hola!%20Quiero%20consultar%20disponibilidad%20para%20alojarme%20en%20La%20Plata&type=phone_number&app_absent=0";

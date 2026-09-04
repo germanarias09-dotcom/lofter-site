@@ -3,12 +3,14 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Quiénes somos | LOFTER",
   description:
     "LOFTER nació administrando unidades propias en La Plata. Hoy aplicamos esa misma lógica, más tecnología y conocimiento hiperlocal, a cada propiedad que gestionamos.",
-};
+  path: "/quienes-somos",
+});
 
 const WHATSAPP_URL =
   "https://api.whatsapp.com/send/?phone=5492216161983&text=Hola!%20Quiero%20conocer%20mas%20sobre%20LOFTER&type=phone_number&app_absent=0";

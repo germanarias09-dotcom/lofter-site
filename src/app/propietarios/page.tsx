@@ -4,12 +4,14 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimatedStat from "@/components/AnimatedStat";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Propietarios | LOFTER",
   description:
     "Sumá tu propiedad a LOFTER: marketing multi-plataforma, gestión de huéspedes, mantenimiento y liquidación mensual transparente en La Plata.",
-};
+  path: "/propietarios",
+});
 
 const WHATSAPP_URL =
   "https://api.whatsapp.com/send/?phone=5492216161983&text=Hola!%20Quiero%20sumar%20mi%20propiedad%20a%20LOFTER&type=phone_number&app_absent=0";
