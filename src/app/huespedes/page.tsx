@@ -103,7 +103,7 @@ export default async function HuespedesPage() {
               Nuestros departamentos destacados en La Plata
             </h2>
             <p className="mt-4 max-w-2xl text-navy/60">
-              Todas las unidades que administramos, listas para tu próxima estadía.
+              Estas son las unidades que más eligen nuestros huéspedes, listas para tu estadía.
             </p>
 
             <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
