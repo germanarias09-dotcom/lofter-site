@@ -2,7 +2,7 @@ export type Apartment = {
   id: string;
   title: string;
   image: string;
-  /** Zona/ubicación aproximada, para mostrar como tag sobre la foto. */
+  /** Ubicación (calle y altura/entrecalles), para mostrar como tag sobre la foto. */
   zone: string;
   /** Capacidad máxima de huéspedes. */
   capacity: number;
@@ -15,23 +15,20 @@ type LofterizeAccommodation = {
   accommodationId: string | number;
   name: string;
   mainPhotoUrl: string | null;
-  // Campos que Lofterize todavía no devuelve en este endpoint pero va a
-  // sumar más adelante. Se leen acá ya mismo (si algún día aparecen en la
-  // respuesta se usan tal cual, sin tocar nada más) y mientras tanto se
-  // completan con un mock determinístico más abajo.
-  zone?: string | null;
-  capacity?: number | null;
+  // Lofterize ya devuelve estos dos campos en /accommodations/photos. Se
+  // guardan mock* como red de seguridad por si alguna unidad puntual todavía
+  // no los tiene cargados (quedaría null/undefined) — no debería pasar en
+  // el uso normal.
+  location?: string | null;
+  guestLimit?: number | null;
 };
 
 type LofterizePhotosResponse = {
   accommodations: LofterizeAccommodation[];
 };
 
-// Zonas conocidas de La Plata, usadas SOLO como tag aproximado de ubicación
-// (no una dirección exacta) mientras el endpoint de Lofterize no devuelve
-// esa info — es también el criterio que usan los sitios de alquiler
-// temporario en general (Airbnb, Booking) para no exponer la dirección
-// puntual de una unidad antes de la reserva.
+// Zonas conocidas de La Plata, usadas como red de seguridad si alguna unidad
+// puntual llega sin "location" cargado desde Lofterize.
 const ZONES = [
   "Centro",
   "Plaza San Martín",
@@ -51,15 +48,25 @@ function hashId(id: string): number {
   return h;
 }
 
-// TODO: sacar mockZone/mockCapacity el día que Lofterize empiece a devolver
-// "zone" y "capacity" reales en /accommodations/photos — el fetch de abajo
-// ya está preparado para usar esos valores en cuanto lleguen.
 function mockZone(id: string): string {
   return ZONES[hashId(id) % ZONES.length];
 }
 
 function mockCapacity(id: string): number {
   return 2 + (hashId(id + "capacity") % 5); // entre 2 y 6 huéspedes
+}
+
+// Lofterize devuelve algo como "calle 45 entre 16 y 17, La Plata" (a veces
+// "La plata" en minúscula) — como el tag ya se muestra en una página que es
+// 100% de La Plata, sacamos ese sufijo repetido y capitalizamos, para que
+// quede compacto sobre la foto (ej. "Calle 45 entre 16 y 17").
+function formatLocation(raw: string | null | undefined): string | null {
+  if (!raw) return null;
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+  const withoutCity = trimmed.replace(/,?\s*la\s*plata\s*$/i, "").trim();
+  const text = withoutCity || trimmed;
+  return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 // Trae las unidades reales desde el backend de Lofterize. Se excluyen los
@@ -83,8 +90,8 @@ export async function getApartments(): Promise<Apartment[]> {
           id,
           title: a.name,
           image: a.mainPhotoUrl as string,
-          zone: a.zone ?? mockZone(id),
-          capacity: a.capacity ?? mockCapacity(id),
+          zone: formatLocation(a.location) ?? mockZone(id),
+          capacity: a.guestLimit ?? mockCapacity(id),
         };
       });
   } catch {
