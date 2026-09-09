@@ -12,11 +12,11 @@ import type { NextConfig } from "next";
 // "[Report Only] Refused to ...".
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://resx.octorate.com https://cdn.trustindex.io",
+  "script-src 'self' 'unsafe-inline' https://resx.octorate.com https://cdn.trustindex.io https://www.googletagmanager.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://resx.octorate.com",
   "font-src 'self' https://fonts.gstatic.com",
   "img-src 'self' data: https://images.unsplash.com https://cdn.trustindex.io https://resx.octorate.com https://api.octorate.com",
-  "connect-src 'self' https://api.octorate.com https://resx.octorate.com https://cdn.trustindex.io",
+  "connect-src 'self' https://api.octorate.com https://resx.octorate.com https://cdn.trustindex.io https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net",
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",

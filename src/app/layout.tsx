@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
@@ -6,6 +7,10 @@ import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/lib/seo";
 // para no depender de acceso a fonts.googleapis.com en el momento del build.
 // Si más adelante se prefiere auto-hospedar los archivos .woff2 (mejor
 // performance, cero requests externos), next/font/local es el reemplazo directo.
+
+// ID de la etiqueta de Google Ads (conversion tracking). Se carga en todo
+// el sitio via next/script mas abajo -- ver seccion GOOGLE_ADS_ID.
+const GOOGLE_ADS_ID = "AW-18402388942";
 
 const SITE_TITLE = "LOFTER | Alquileres temporarios en La Plata";
 const SITE_DESCRIPTION =
@@ -75,6 +80,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           // eslint-disable-next-line react/no-danger -- JSON-LD estatico, sin input de usuario.
           dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSON_LD) }}
         />
+        {/* Etiqueta de Google Ads (gtag.js) -- conversion tracking sitewide. */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_ADS_ID}');
+          `}
+        </Script>
         {children}
       </body>
     </html>
