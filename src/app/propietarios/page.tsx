@@ -3,6 +3,7 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import TrackedWhatsAppLink from "@/components/TrackedWhatsAppLink";
 import AnimatedStat from "@/components/AnimatedStat";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -160,14 +161,12 @@ export default function PropietariosPage() {
               </span>
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <a
+              <TrackedWhatsAppLink
                 href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="rounded-full bg-teal px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-teal-dark"
               >
                 Quiero sumar mi propiedad
-              </a>
+              </TrackedWhatsAppLink>
             </div>
 
             {/* LOFTER EN NUMEROS — continúa el mismo degradado del hero, sin tarjeta aparte */}
@@ -348,19 +347,17 @@ export default function PropietariosPage() {
             <p className="mt-4 text-navy/60">
               Contanos sobre tu unidad y te contactamos para coordinar una evaluación sin costo.
             </p>
-            <a
+            <TrackedWhatsAppLink
               href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="mt-8 inline-block rounded-full bg-teal px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-teal-dark"
             >
               Hablar por WhatsApp
-            </a>
+            </TrackedWhatsAppLink>
           </div>
         </section>
       </main>
       <Footer />
-      <WhatsAppButton />
+      <WhatsAppButton trackConversion />
     </>
   );
 }

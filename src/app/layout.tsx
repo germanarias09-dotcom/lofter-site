@@ -12,6 +12,12 @@ import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/lib/seo";
 // el sitio via next/script mas abajo -- ver seccion GOOGLE_ADS_ID.
 const GOOGLE_ADS_ID = "AW-18402388942";
 
+// Accion de conversion "click a WhatsApp" de la campaña de Propietarios en
+// Google Ads (Herramientas y configuracion -> Conversiones). La usa
+// window.gtag_report_conversion, definida mas abajo, desde
+// TrackedWhatsAppLink (ver src/components/TrackedWhatsAppLink.tsx).
+const PROPIETARIOS_WHATSAPP_CONVERSION_LABEL = "AW-18402388942/k1dOCIDsj_McEM7X-MZE";
+
 const SITE_TITLE = "LOFTER | Alquileres temporarios en La Plata";
 const SITE_DESCRIPTION =
   "LOFTER administra tu propiedad en La Plata de punta a punta: marketing, reservas, huéspedes y liquidación mensual.";
@@ -91,6 +97,26 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GOOGLE_ADS_ID}');
+          `}
+        </Script>
+        {/* window.gtag_report_conversion: frena la navegacion un instante,
+            manda el evento de conversion, y recien despues redirige --
+            asi no se pierde la conversion si el navegador corta la
+            conexion al abrir WhatsApp. La usa TrackedWhatsAppLink. */}
+        <Script id="google-ads-conversion-fn" strategy="afterInteractive">
+          {`
+            window.gtag_report_conversion = function(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                  'send_to': '${PROPIETARIOS_WHATSAPP_CONVERSION_LABEL}',
+                  'event_callback': callback
+              });
+              return false;
+            };
           `}
         </Script>
         {children}
