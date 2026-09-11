@@ -214,7 +214,7 @@ export default function PropietariosPage() {
         </section>
 
         {/* PROCESO */}
-        <section className="mx-auto max-w-7xl px-6 py-24">
+        <section id="asi-de-facil" className="mx-auto max-w-7xl px-6 py-24 scroll-mt-24">
           <p className="text-sm font-semibold uppercase tracking-widest text-teal">
             Así de fácil
           </p>
