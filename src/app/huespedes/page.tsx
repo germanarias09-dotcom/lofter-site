@@ -94,7 +94,7 @@ export default async function HuespedesPage() {
             el catálogo real de unidades que administramos. Oculta hasta tener fotos
             reales; ver SHOW_APARTMENTS_GALLERY arriba y src/lib/apartments.ts. */}
         {SHOW_APARTMENTS_GALLERY && apartments.length > 0 && (
-        <section className="bg-bg-soft py-24">
+        <section id="alojamiento" className="bg-bg-soft py-24 scroll-mt-24">
           <div className="mx-auto max-w-7xl px-6">
             <p className="text-sm font-semibold uppercase tracking-widest text-teal">
               Alojamiento
