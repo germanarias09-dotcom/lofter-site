@@ -291,14 +291,13 @@ export default function PropietariosPage() {
                 Ningún dato de huéspedes ni de pagos pasa por planillas sueltas.
               </p>
               <a
-                href="#"
+                href="https://lofter-43713245181.us-central1.run.app/login"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-8 inline-block rounded-full bg-navy px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-light"
               >
                 Acceso propietarios
               </a>
-              <p className="mt-2 text-xs text-navy/40">
-                * Enlace al portal pendiente de configurar.
-              </p>
             </div>
 
             <div className="flex justify-center rounded-3xl bg-bg-soft p-6 sm:p-10">
